@@ -1,6 +1,6 @@
 <?php
 
-class Aprendiz
+abstract class Aprendiz
 {
     protected string $nombre;
     protected string $documento;
