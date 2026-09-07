@@ -53,72 +53,56 @@ $equipo->AgregarAprendiz($aprendiz5);
 $backend = $equipo->AprendicesPorEspecialidad("Backend");
 $frontend = $equipo->AprendicesPorEspecialidad("Frontend");
 
+
+echo "========================================\n";
+echo "       EQUIPO DE APRENDICES\n";
+echo "========================================\n\n";
+
+
+echo "TODOS LOS APRENDICES\n";
+echo "----------------------------------------\n";
+
+echo $equipo->MostrarAprendices();
+
+echo "\n\n";
+
+
+echo "CANTIDAD DE APRENDICES\n";
+echo "----------------------------------------\n";
+
+echo "Total de aprendices: ";
+echo $equipo->ContarAPrendices();
+
+echo "\n\n";
+
+
+echo "APRENDICES DE BACKEND\n";
+echo "----------------------------------------\n";
+
+foreach ($backend as $aprendiz) {
+
+    echo $aprendiz->GenerarReporte();
+    echo "\n";
+}
+
+echo "\n";
+
+
+echo "APRENDICES DE FRONTEND\n";
+echo "----------------------------------------\n";
+
+foreach ($frontend as $aprendiz) {
+
+    echo $aprendiz->GenerarReporte();
+    echo "\n";
+}
+
+echo "\n";
+
+
+echo "COMPARACIÓN POR ESPECIALIDAD\n";
+echo "----------------------------------------\n";
+
+echo $equipo->ContarAprendicesPorEspecialidad();
+
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Equipo de Aprendices</title>
-</head>
-
-<body>
-
-    <h1>Equipo de Aprendices</h1>
-
-    <hr>
-
-    <h2>Todos los aprendices</h2>
-
-    <pre>
-<?= $equipo->MostrarAprendices() ?>
-    </pre>
-
-
-    <hr>
-    <h2>Cantidad de aprendices</h2>
-
-    <p>
-        Total de aprendices:
-        <?= $equipo->ContarAPrendices() ?>
-    </p>
-
-
-    <hr>
-
-    <h2>Aprendices de Backend</h2>
-
-    <?php foreach ($backend as $aprendiz): ?>
-
-        <p>
-            <?= $aprendiz->GenerarReporte() ?>
-        </p>
-
-    <?php endforeach; ?>
-
-
-    <hr>
-    <h2>Aprendices de Frontend</h2>
-
-    <?php foreach ($frontend as $aprendiz): ?>
-
-        <p>
-            <?= $aprendiz->GenerarReporte() ?>
-        </p>
-
-    <?php endforeach; ?>
-
-
-    <hr>
-
-    <!-- COMPARACIÓN -->
-    <h2>Comparación por especialidad</h2>
-
-    <p>
-        <?= $equipo->ContarAprendicesPorEspecialidad() ?>
-    </p>
-
-</body>
-
-</html>
